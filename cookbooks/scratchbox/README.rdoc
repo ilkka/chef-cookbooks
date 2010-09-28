@@ -1,0 +1,10 @@
+= DESCRIPTION:
+
+This cookbook installs Scratchbox.
+
+= REQUIREMENTS:
+
+= ATTRIBUTES: 
+
+= USAGE:
+
