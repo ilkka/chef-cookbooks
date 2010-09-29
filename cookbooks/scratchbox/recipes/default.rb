@@ -43,11 +43,11 @@ script 'patch-sdk-script-to-skip-licence' do
 end
 
 bash 'install-scratchbox' do
-  code '(test -d /scratchbox || /tmp/maemo-scratchbox-install_5.0.sh -u vagrant)'
+  code '/tmp/maemo-scratchbox-install_5.0.sh -U -u vagrant'
 end
 
 bash 'install-sdk' do
-  code '((sudo -u vagrant /scratchbox/login dpkg --get-selections|grep maemo-sdk) || sudo -u vagrant /tmp/maemo-sdk-install_5.0.sh)'
+  code 'sudo -u vagrant /tmp/maemo-sdk-install_5.0_patched.sh'
 end
 
 # setup shared sb directories
