@@ -34,6 +34,14 @@ remote_file '/tmp/maemo-sdk-install_5.0.sh' do
   mode '0755'
 end
 
+script 'patch-sdk-script-to-skip-licence' do
+  interpreter 'bash'
+  user 'root'
+  code <<-EOH
+  sed 's/^license$/#license # disable for noninteractive use/' /tmp/maemo-sdk-install_5.0.sh > /tmp/maemo-sdk-install_5.0_patched.sh
+  EOH
+end
+
 bash 'install-scratchbox' do
   code '(test -d /scratchbox || /tmp/maemo-scratchbox-install_5.0.sh -u vagrant)'
 end
