@@ -55,3 +55,15 @@ bash "mount-bind-vagrant-share-into-scratchbox" do
   code "(mkdir -p /scratchbox/users/vagrant/home/vagrant/work && chown vagrant:vagrant /scratchbox/users/vagrant/home/vagrant/work; mount -B /vagrant /scratchbox/users/vagrant/home/vagrant/work)"
 end
 
+package "xserver-xephyr" do
+  action :update
+end
+
+file "/usr/local/bin/start-xephyr.sh" do
+  action :create
+  mode '0755'
+  content <<-EOH
+#!/bin/sh
+Xephyr :2 -host-cursor -screen 800x480x16 -dpi 96 -ac -keybd ephyr,,,xkbmodel=evdev,xkblayout=fi
+EOH
+end
