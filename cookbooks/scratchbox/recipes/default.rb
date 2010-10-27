@@ -47,7 +47,7 @@ bash 'install-scratchbox' do
 end
 
 bash 'install-sdk' do
-  code '(chmod 755 /tmp/maemo-sdk-install_5.0_patched.sh && sudo -u vagrant /tmp/maemo-sdk-install_5.0_patched.sh)'
+  code '(chmod 755 /tmp/maemo-sdk-install_5.0_patched.sh && sudo -u vagrant /tmp/maemo-sdk-install_5.0_patched.sh -d)'
 end
 
 # setup shared sb directories
